@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { Ticket, Calendar, Home, Star, Search, Bookmark, Settings, Loader2, Bell } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
-import { getUserBookings } from '../services/api';
+import { getUserBookings, getMovies } from '../services/api';
 import { DashboardNavbar } from '../components/DashboardNavbar';
 
 export function UserDashboardPage() {
@@ -20,6 +20,11 @@ export function UserDashboardPage() {
     queryKey: ['user-bookings', user?.id],
     queryFn: () => getUserBookings(user!.id),
     enabled: !!user?.id,
+  });
+
+  const { data: movies } = useQuery({
+    queryKey: ['movies'],
+    queryFn: () => getMovies(),
   });
 
   if (!isAuthenticated || !user) return null;
@@ -48,7 +53,9 @@ export function UserDashboardPage() {
               <div className="flex justify-center py-20"><Loader2 className="w-12 h-12 text-white/50 animate-spin" /></div>
             ) : bookings && bookings.length > 0 ? (
               <div className="space-y-6">
-                {bookings.map((booking: any) => (
+                {bookings.map((booking: any) => {
+                  const movie = movies?.find((m: any) => String(m.id) === String(booking.show?.movieId));
+                  return (
                   <div key={booking.id} 
                        className="relative bg-cover bg-center bg-no-repeat border border-white/10 rounded-2xl overflow-hidden hover:border-white/30 transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] group p-6"
                        style={{ backgroundImage: `url('/mybookings.png')` }}>
@@ -58,9 +65,9 @@ export function UserDashboardPage() {
                         <span className={`text-[10px] px-3 py-1.5 rounded-full font-black uppercase tracking-widest ${booking.status === 'CONFIRMED' ? 'bg-emerald-500 text-black shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-yellow-500 text-black shadow-[0_0_15px_rgba(234,179,8,0.5)]'}`}>
                           {booking.status}
                         </span>
-                        <p className="text-white font-medium mt-4 text-xl font-heading">Booking #{booking.id.substring(0, 8).toUpperCase()}</p>
+                        <p className="text-white font-medium mt-4 text-xl font-heading">{movie?.title || `Booking #${booking.id.substring(0, 8).toUpperCase()}`}</p>
                         <div className="flex items-center gap-6 mt-3 text-sm text-gray-300 uppercase tracking-widest">
-                          <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {new Date(booking.createdAt).toLocaleDateString()}</span>
+                          <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {new Date(booking.bookingTime || booking.show?.showDate).toLocaleDateString()}</span>
                           <span className="flex items-center gap-2"><Ticket className="w-4 h-4" /> {booking.tickets?.length || 0} Tickets</span>
                         </div>
                       </div>
@@ -70,7 +77,8 @@ export function UserDashboardPage() {
                       </div>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="text-center py-24">
