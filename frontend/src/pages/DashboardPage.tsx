@@ -16,7 +16,7 @@ export function DashboardPage() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const itemsPerPage = 20;
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -279,7 +279,7 @@ export function DashboardPage() {
             </div>
           ) : currentMovies && currentMovies.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pb-12">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pb-12">
                 {currentMovies.map((movie: any, idx: number) => (
                   <div 
                     key={movie.id} 
