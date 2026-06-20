@@ -5,7 +5,7 @@ import SockJS from 'sockjs-client';
 import { Monitor, Check, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { getShowByIdLive, getSeatsForShow, getUnavailableSeats, lockSeat, unlockSeat } from '../services/api';
+import { getShowByIdLive, getSeatsForShow, getUnavailableSeats, lockSeat, unlockSeat, getMovieById } from '../services/api';
 import { useAuthStore } from '../store/useAuthStore';
 
 export function SeatSelectionPage() {
@@ -39,11 +39,17 @@ export function SeatSelectionPage() {
     enabled: !!showId,
   });
 
-  // Fetch unavailable seats (booked + locked by others)
   const { data: initialUnavailable } = useQuery({
     queryKey: ['unavailable-seats', showId],
     queryFn: () => getUnavailableSeats(showId!),
     enabled: !!showId,
+  });
+
+  const movieId = show?.movieId;
+  const { data: movie } = useQuery({
+    queryKey: ['movie', movieId],
+    queryFn: () => getMovieById(movieId!),
+    enabled: !!movieId,
   });
 
   // Initialize locked seats
@@ -131,8 +137,17 @@ export function SeatSelectionPage() {
       style={{ backgroundImage: `url('/dashboard-bg.jpg.jpeg')`, backgroundColor: 'rgba(5,5,5,0.85)', backgroundBlendMode: 'overlay' }}
     >
       <div className="max-w-5xl mx-auto px-4">
-        
-        {/* Screen Indicator Moved to Bottom */}
+        {/* Header Section */}
+        <div className="flex flex-col items-center mb-12">
+          <h2 className="text-3xl font-bold font-heading tracking-wide mb-2">
+            {movie ? movie.title : 'Select Seats'}
+          </h2>
+          <div className="text-gray-400 text-sm flex items-center gap-2">
+            <span>{show?.screen?.name || 'Screen'}</span>
+            <span>•</span>
+            <span>{show?.showTime ? new Date(`2000-01-01T${show.showTime}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}</span>
+          </div>
+        </div>
 
         {/* Seat Grid */}
         <div className="flex flex-col items-center space-y-4 overflow-x-auto pb-8">

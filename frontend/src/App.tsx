@@ -16,7 +16,16 @@ import { RegisterPage } from './pages/RegisterPage';
 import { AppLoader } from './components/AppLoader';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+      gcTime: 0,
+      refetchOnMount: true,
+      refetchOnWindowFocus: true,
+    },
+  },
+});
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

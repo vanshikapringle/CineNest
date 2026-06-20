@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 
-const OMDB_API_KEY = '2ce07525';
+const OMDB_API_KEY = 'trilogy';
 const DB_CONNECTION = 'postgres://postgres.wbkevavrnhowvlimsqlx:Vanshika%4004@aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres';
 
 async function seedCast() {
@@ -62,7 +62,7 @@ async function insertCrewMember(client, movieId, name, role) {
 
       // Insert new crew
       const insertRes = await client.query(
-        'INSERT INTO crew (name, photo_url, role) VALUES ($1, $2, $3) RETURNING id',
+        'INSERT INTO crew (id, name, photo_url, role) VALUES (gen_random_uuid(), $1, $2, $3) RETURNING id',
         [name, photoUrl, role]
       );
       crewId = insertRes.rows[0].id;
