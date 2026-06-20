@@ -19,8 +19,12 @@ export function MoviesSection({ movies, isLoading, isError, isClickable = true }
     queryClient.invalidateQueries({ queryKey: ['movies'] });
   }, [queryClient]);
 
-  const totalPages = movies ? Math.ceil(movies.length / itemsPerPage) : 0;
-  const currentMovies = movies ? movies.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
+  const isArray = Array.isArray(movies);
+  const allMovies = isArray ? movies : (movies?.content || []);
+  const totalItems = isArray ? movies.length : (movies?.totalElements || 0);
+  const totalPages = isArray ? Math.ceil(totalItems / itemsPerPage) : (movies?.totalPages || 1);
+  const currentMovies = isArray ? allMovies.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : allMovies;
+
   return (
     <section id="movies" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-20">
       <div className="flex flex-col items-center text-center mb-16">

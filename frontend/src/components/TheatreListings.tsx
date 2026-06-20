@@ -28,9 +28,8 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
             return s.movieId === movieId && s.showDate === date;
           });
           
-          // Sort shows by time
           if (movieShows.length > 0) {
-            showsMap[theatre.id] = movieShows.sort((a, b) => a.showTime.localeCompare(b.showTime));
+            showsMap[theatre.id] = movieShows.sort((a: any, b: any) => a.showTime.localeCompare(b.showTime));
           }
         }
 
