@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.Query;
@@ -17,6 +18,9 @@ public interface MovieRepository extends JpaRepository<Movie, UUID> {
     
     @EntityGraph(attributePaths = {"genres", "crew"})
     List<Movie> findAll();
+
+    @EntityGraph(attributePaths = {"genres", "crew"})
+    Optional<Movie> findById(UUID id);
 
     List<Movie> findByStatus(String status);
     

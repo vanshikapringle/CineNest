@@ -9,6 +9,8 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
   const [showsByTheatre, setShowsByTheatre] = useState<Record<string, any[]>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
+  const [selectedFormat, setSelectedFormat] = useState('IMAX 3D');
   const navigate = useNavigate();
   const selectedCity = useCityStore((state) => state.selectedCity);
 
@@ -100,8 +102,22 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
           </div>
 
           <div className="flex items-center gap-3 ml-8 mb-6">
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 font-medium">English</span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 font-medium">2D</span>
+            <button 
+              onClick={() => setSelectedLanguage(selectedLanguage === 'English' ? 'Hindi' : 'English')}
+              className={`px-3 py-1 rounded-full border text-xs font-medium transition-colors ${
+                selectedLanguage ? 'bg-white/10 border-white/20 text-white shadow-[0_0_10px_rgba(255,255,255,0.1)]' : 'bg-transparent border-white/10 text-gray-400 hover:text-gray-300'
+              }`}
+            >
+              {selectedLanguage}
+            </button>
+            <button 
+              onClick={() => setSelectedFormat(selectedFormat === 'IMAX 3D' ? '2D' : 'IMAX 3D')}
+              className={`px-3 py-1 rounded-full border text-xs font-medium transition-colors ${
+                selectedFormat ? 'bg-white/10 border-white/20 text-white shadow-[0_0_10px_rgba(255,255,255,0.1)]' : 'bg-transparent border-white/10 text-gray-400 hover:text-gray-300'
+              }`}
+            >
+              {selectedFormat}
+            </button>
           </div>
           
           <div className="flex flex-wrap gap-4 ml-8">
