@@ -14,6 +14,8 @@ export function DashboardPage() {
   const [selectedYear, setSelectedYear] = useState('Any Year');
   const [activeTab, setActiveTab] = useState('Home');
   const [showNotifications, setShowNotifications] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
   const years = ["Any Year", "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"];
 
@@ -33,6 +35,15 @@ export function DashboardPage() {
       return getMovies(undefined, undefined, selectedYear === 'Any Year' ? undefined : selectedYear);
     }
   });
+
+  // Pagination Logic
+  const totalPages = movies ? Math.ceil(movies.length / itemsPerPage) : 0;
+  const currentMovies = movies ? movies.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
+
+  // Reset page when search or year changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [debouncedQuery, selectedYear]);
 
   return (
     <div 
@@ -125,7 +136,10 @@ export function DashboardPage() {
               </div>
             )}
           </div>
-          <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors">
+          <div 
+            className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors"
+            onClick={() => setActiveTab('Settings')}
+          >
             <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-white to-gray-300 text-black flex items-center justify-center text-xs font-bold shadow-inner">
               {user?.name?.charAt(0).toUpperCase() || 'V'}
             </div>
@@ -223,48 +237,104 @@ export function DashboardPage() {
               <p className="text-2xl font-semibold mb-2">Error loading movies</p>
               <p className="text-sm">{(error as any)?.message || 'Please check if your backend services are running and hard refresh (Ctrl+F5) the page.'}</p>
             </div>
-          ) : movies && movies.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 lg:gap-8 pb-32">
-              {movies.map((movie: any, idx: number) => (
-                <div 
-                  key={movie.id} 
-                  className="relative group rounded-3xl overflow-hidden cursor-pointer shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:-translate-y-2 border border-white/5 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] bg-[#050505]"
-                  style={{ animationDelay: `${idx * 50}ms` }}
-                >
-                  {/* NEW Badge */}
-                  <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md text-black text-[10px] font-black px-3 py-1.5 rounded-full shadow-[0_5px_15px_rgba(0,0,0,0.5)] tracking-widest">
-                    NEW
-                  </div>
-                  
-                  {/* Image */}
-                  <div className="aspect-[2/3] w-full overflow-hidden">
-                    <img 
-                      src={movie.posterUrl || 'https://picsum.photos/400/600'} 
-                      alt={movie.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-                    />
-                  </div>
-                  
-                  {/* Ultra-Premium Gradient Overlay & Text */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                    <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                      <h3 className="text-xl font-bold text-white leading-snug mb-2 font-heading">{movie.title}</h3>
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="text-xs font-bold text-white/70 tracking-widest uppercase border border-white/20 px-2 py-1 rounded">
-                          {movie.genres && movie.genres.length > 0 ? movie.genres[0].name : 'Drama'}
-                        </span>
-                        <span className="text-xs font-bold text-yellow-400 flex items-center gap-1">
-                          <Star className="w-3 h-3 fill-yellow-400" /> {movie.imdbRating}
-                        </span>
+          ) : currentMovies && currentMovies.length > 0 ? (
+            <>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8 pb-12">
+                {currentMovies.map((movie: any, idx: number) => (
+                  <div 
+                    key={movie.id} 
+                    className="relative group rounded-3xl overflow-hidden cursor-pointer shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:-translate-y-2 border border-white/5 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.9)] bg-[#050505]"
+                    style={{ animationDelay: `${idx * 50}ms` }}
+                  >
+                    {/* NEW Badge */}
+                    <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md text-black text-[10px] font-black px-3 py-1.5 rounded-full shadow-[0_5px_15px_rgba(0,0,0,0.5)] tracking-widest">
+                      NEW
+                    </div>
+                    
+                    {/* Image */}
+                    <div className="aspect-[2/3] w-full overflow-hidden">
+                      <img 
+                        src={movie.posterUrl || 'https://picsum.photos/400/600'} 
+                        alt={movie.title}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                      />
+                    </div>
+                    
+                    {/* Ultra-Premium Gradient Overlay & Text */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                      <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-xl font-bold text-white leading-snug mb-2 font-heading">{movie.title}</h3>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="text-xs font-bold text-white/70 tracking-widest uppercase border border-white/20 px-2 py-1 rounded">
+                            {movie.genres && movie.genres.length > 0 ? movie.genres[0].name : 'Drama'}
+                          </span>
+                          <span className="text-xs font-bold text-yellow-400 flex items-center gap-1">
+                            <Star className="w-3 h-3 fill-yellow-400" /> {movie.imdbRating}
+                          </span>
+                        </div>
+                        <Link to={`/movie/${movie.id}`} className="w-full bg-white text-black text-center py-3 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:bg-gray-200 hover:scale-105 transition-all block uppercase tracking-widest">
+                          Book Now
+                        </Link>
                       </div>
-                      <Link to={`/movie/${movie.id}`} className="w-full bg-white text-black text-center py-3 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:bg-gray-200 hover:scale-105 transition-all block uppercase tracking-widest">
-                        Book Now
-                      </Link>
                     </div>
                   </div>
+                ))}
+              </div>
+
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-2 pb-32">
+                  <button 
+                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 rounded-xl text-sm font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed bg-white/5 hover:bg-white/10 text-white"
+                  >
+                    Prev
+                  </button>
+                  
+                  {/* Page Numbers */}
+                  <div className="flex gap-2">
+                    {Array.from({ length: totalPages }).map((_, idx) => {
+                      const pageNum = idx + 1;
+                      // Simple logic to show current, first, last, and neighbors
+                      if (
+                        pageNum === 1 || 
+                        pageNum === totalPages || 
+                        (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)
+                      ) {
+                        return (
+                          <button
+                            key={pageNum}
+                            onClick={() => setCurrentPage(pageNum)}
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold transition-all ${
+                              currentPage === pageNum 
+                                ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)]' 
+                                : 'bg-white/5 hover:bg-white/10 text-white'
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        );
+                      } else if (
+                        pageNum === currentPage - 2 || 
+                        pageNum === currentPage + 2
+                      ) {
+                        return <span key={pageNum} className="text-white/50 w-10 h-10 flex items-center justify-center">...</span>;
+                      }
+                      return null;
+                    })}
+                  </div>
+
+                  <button 
+                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 rounded-xl text-sm font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed bg-white/5 hover:bg-white/10 text-white"
+                  >
+                    Next
+                  </button>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           ) : (
             <div className="text-center py-32 text-gray-300">
               <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">

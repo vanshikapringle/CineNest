@@ -39,8 +39,8 @@ export function AppLoader({ onComplete }: { onComplete: () => void }) {
 
       <div className="relative z-10 flex flex-col items-center max-w-2xl">
         {/* Animated Brand Logo Placeholder */}
-        <div className="mb-12 flex justify-center">
-          <img src="/logo.png" alt="CineNest Logo" className="w-32 h-32 md:w-48 md:h-48 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.5)] animate-pulse" />
+        <div className="mb-8 flex justify-center">
+          <img src="/favicon.png" alt="CineNest Favicon" className="w-16 h-16 md:w-24 md:h-24 object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.5)] animate-pulse" />
         </div>
 
         {/* Quotes Carousel */}

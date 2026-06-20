@@ -4,14 +4,15 @@ import { useQuery } from '@tanstack/react-query';
 import { getMovieById } from '../services/api';
 import { TheatreListings } from '../components/TheatreListings';
 import { ArrowLeft, X } from 'lucide-react';
+import { DashboardNavbar } from '../components/DashboardNavbar';
 
 export function BookingPage() {
   const { movieId } = useParams();
   const navigate = useNavigate();
 
-  // Generate 5 days starting from the seeded date 2026-06-19
+  // Generate 5 days starting from today
   const dates = Array.from({ length: 5 }).map((_, i) => {
-    const d = new Date('2026-06-19T00:00:00Z');
+    const d = new Date();
     d.setDate(d.getDate() + i);
     const dayName = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
     const dayNum = d.getDate().toString();
@@ -40,28 +41,25 @@ export function BookingPage() {
   }
 
   return (
-    <div 
-      className="min-h-screen bg-cover bg-center bg-fixed font-body text-white"
-      style={{ backgroundImage: `url('/dashboard-bg.jpg.jpeg')`, backgroundColor: 'rgba(5,5,5,0.9)', backgroundBlendMode: 'overlay' }}
-    >
-      {/* Top Navigation Header */}
-      <header className="sticky top-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/5 py-4 px-6 flex items-center justify-between">
-        <button onClick={() => navigate(-1)} className="flex items-center text-gray-400 hover:text-white transition-colors">
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          <span className="text-sm font-medium">Back</span>
-        </button>
-        
-        <div className="text-center">
-          <h1 className="text-xl font-heading font-bold text-white">{movie.title}</h1>
-          <p className="text-xs text-gray-400 mt-1 uppercase tracking-wider">{movie.language || 'ENGLISH'} • IMAX 3D</p>
-        </div>
-
-        <button onClick={() => navigate('/')} className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-          <X className="w-4 h-4 text-gray-300" />
-        </button>
-      </header>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20">
+    <>
+      <DashboardNavbar />
+      <div 
+        className="min-h-screen bg-cover bg-center bg-fixed font-body text-white pt-20"
+        style={{ backgroundImage: `url('/dashboard-bg.jpg.jpeg')`, backgroundColor: 'rgba(5,5,5,0.9)', backgroundBlendMode: 'overlay' }}
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20">
+          
+          <div className="flex items-center justify-between mb-8">
+            <button onClick={() => navigate(-1)} className="flex items-center text-gray-400 hover:text-white transition-colors">
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              <span className="text-sm font-medium">Back</span>
+            </button>
+            <div className="text-center">
+              <h1 className="text-2xl font-heading font-bold text-white">{movie.title}</h1>
+              <p className="text-xs text-gray-400 mt-1 uppercase tracking-wider">{movie.language || 'ENGLISH'} • IMAX 3D</p>
+            </div>
+            <div className="w-20"></div> {/* Spacer for centering */}
+          </div>
         
         {/* Date Selector Wrapper */}
         <div className="mb-10 flex justify-center">
@@ -91,6 +89,7 @@ export function BookingPage() {
         {movieId && <TheatreListings movieId={movieId} date={selectedDate} />}
 
       </div>
-    </div>
+      </div>
+    </>
   );
 }

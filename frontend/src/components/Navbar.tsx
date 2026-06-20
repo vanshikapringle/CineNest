@@ -16,6 +16,8 @@ export function Navbar() {
   const isDashboardRoute = 
     location.pathname.startsWith('/dashboard') || 
     location.pathname.startsWith('/bookings') || 
+    location.pathname.startsWith('/booking') || 
+    location.pathname.startsWith('/book') || 
     location.pathname.startsWith('/movie') ||
     location.pathname.startsWith('/payment') ||
     location.pathname.startsWith('/ticket') ||

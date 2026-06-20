@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MovieCard } from './MovieCard';
 
@@ -9,6 +10,10 @@ interface MoviesSectionProps {
 }
 
 export function MoviesSection({ movies, isLoading, isError, isClickable = true }: MoviesSectionProps) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+  const totalPages = movies ? Math.ceil(movies.length / itemsPerPage) : 0;
+  const currentMovies = movies ? movies.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
   return (
     <section id="movies" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-20">
       <div className="flex flex-col items-center text-center mb-16">
@@ -62,27 +67,81 @@ export function MoviesSection({ movies, isLoading, isError, isClickable = true }
         </div>
       )}
 
-      {!isLoading && !isError && movies && movies.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {movies.slice(0, 8).map((movie: any, idx: number) => (
-            <motion.div
-              key={movie.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-            >
-              <MovieCard 
-                id={movie.id}
-                title={movie.title}
-                imageUrl={movie.posterUrl || 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop'}
-                rating={movie.imdbRating || 9.0} 
-                genre={movie.genres && movie.genres.length > 0 ? movie.genres[0].name : 'Drama'} 
-                isClickable={isClickable}
-              />
-            </motion.div>
-          ))}
-        </div>
+      {!isLoading && !isError && currentMovies && currentMovies.length > 0 && (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {currentMovies.map((movie: any, idx: number) => (
+              <motion.div
+                key={movie.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+              >
+                <MovieCard 
+                  id={movie.id}
+                  title={movie.title}
+                  imageUrl={movie.posterUrl || 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop'}
+                  rating={movie.imdbRating || 9.0} 
+                  genre={movie.genres && movie.genres.length > 0 ? movie.genres[0].name : 'Drama'} 
+                  isClickable={isClickable}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 pt-12 pb-8">
+              <button 
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-xl text-sm font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed bg-white/5 hover:bg-white/10 text-white"
+              >
+                Prev
+              </button>
+              
+              <div className="flex gap-2">
+                {Array.from({ length: totalPages }).map((_, idx) => {
+                  const pageNum = idx + 1;
+                  if (
+                    pageNum === 1 || 
+                    pageNum === totalPages || 
+                    (pageNum >= currentPage - 1 && pageNum <= currentPage + 1)
+                  ) {
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => setCurrentPage(pageNum)}
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold transition-all ${
+                          currentPage === pageNum 
+                            ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)]' 
+                            : 'bg-white/5 hover:bg-white/10 text-white'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  } else if (
+                    pageNum === currentPage - 2 || 
+                    pageNum === currentPage + 2
+                  ) {
+                    return <span key={pageNum} className="text-white/50 w-10 h-10 flex items-center justify-center">...</span>;
+                  }
+                  return null;
+                })}
+              </div>
+
+              <button 
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-xl text-sm font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed bg-white/5 hover:bg-white/10 text-white"
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </>
       )}
     </section>
   );

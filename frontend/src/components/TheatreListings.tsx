@@ -21,8 +21,11 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
         const showsMap: Record<string, any[]> = {};
         for (const theatre of fetchedTheatres) {
           const shows = await getShowsByTheatre(theatre.id);
-          // Filter by movieId AND the selected date
-          const movieShows = shows.filter((s: any) => s.movieId === movieId && s.showDate === date);
+          // Filter by movieId AND the selected date (handling potential timezone 'T' string formats)
+          const movieShows = shows.filter((s: any) => {
+            const rawDate = s.showDate.includes('T') ? s.showDate.split('T')[0] : s.showDate;
+            return s.movieId === movieId && rawDate === date;
+          });
           
           // Sort shows by time
           if (movieShows.length > 0) {
