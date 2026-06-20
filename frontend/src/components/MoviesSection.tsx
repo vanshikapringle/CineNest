@@ -4,7 +4,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { MovieCard } from './MovieCard';
 
 interface MoviesSectionProps {
-  movies: any[];
+  movies: any;
   isLoading: boolean;
   isError: boolean;
   isClickable?: boolean;
@@ -20,9 +20,9 @@ export function MoviesSection({ movies, isLoading, isError, isClickable = true }
   }, [queryClient]);
 
   const isArray = Array.isArray(movies);
-  const allMovies = isArray ? movies : (movies?.content || []);
-  const totalItems = isArray ? movies.length : (movies?.totalElements || 0);
-  const totalPages = isArray ? Math.ceil(totalItems / itemsPerPage) : (movies?.totalPages || 1);
+  const allMovies = isArray ? movies : ((movies as any)?.content || []);
+  const totalItems = isArray ? movies.length : ((movies as any)?.totalElements || 0);
+  const totalPages = isArray ? Math.ceil(totalItems / itemsPerPage) : ((movies as any)?.totalPages || 1);
   const currentMovies = isArray ? allMovies.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : allMovies;
 
   return (
