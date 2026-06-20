@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  # PostgreSQL for Local Development
+  postgres:
+    image: postgres:15-alpine
+    container_name: cinenest-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: cinenest
+      POSTGRES_PASSWORD: cinenest_password
+      POSTGRES_DB: cinenest_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cinenest-network
+
+  # Redis for Seat Locking
+  redis:
+    image: redis:7-alpine
+    container_name: cinenest-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - cinenest-network
+
+  # RabbitMQ for Events (Seat locked, Payments, Notifications)
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: cinenest-rabbitmq
+    ports:
+      - "5672:5672"   # AMQP protocol port
+      - "15672:15672" # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - cinenest-network
+
+  # Prometheus for Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: cinenest-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - cinenest-network
+
+  # Grafana for Dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: cinenest-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+    networks:
+      - cinenest-network
+
+networks:
+  cinenest-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:

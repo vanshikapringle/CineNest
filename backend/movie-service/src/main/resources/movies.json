@@ -1,0 +1,1442 @@
+[
+  {
+    "title": "Dune: Part Two",
+    "synopsis": "Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+    "releaseDate": "2025-11-22",
+    "runtimeMins": 116,
+    "posterUrl": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1000&auto=format&fit=crop",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.8,
+    "rottenTomatoesRating": "97%",
+    "genres": [
+      {
+        "name": "Sci-Fi"
+      },
+      {
+        "name": "Adventure"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Timoth\u00e9e Chalamet",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ],
+    "id": "11111111-1111-1111-1111-111111111111"
+  },
+  {
+    "title": "Oppenheimer",
+    "synopsis": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+    "releaseDate": "2026-03-28",
+    "runtimeMins": 130,
+    "posterUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000&auto=format&fit=crop",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.4,
+    "rottenTomatoesRating": "93%",
+    "genres": [
+      {
+        "name": "Drama"
+      },
+      {
+        "name": "Thriller"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Christopher Nolan",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Cillian Murphy",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ],
+    "id": "22222222-2222-2222-2222-222222222222"
+  },
+  {
+    "title": "Top Gun: Maverick",
+    "synopsis": "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past.",
+    "releaseDate": "2025-08-07",
+    "runtimeMins": 107,
+    "posterUrl": "https://images.unsplash.com/photo-1506466010722-395aa2bef877?q=80&w=1000&auto=format&fit=crop",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.3,
+    "rottenTomatoesRating": "96%",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Drama"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Steven Spielberg",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ],
+    "id": "33333333-3333-3333-3333-333333333333"
+  },
+  {
+    "title": "Barbie",
+    "synopsis": "Barbie suffers a crisis that leads her to question her world and her existence.",
+    "releaseDate": "2026-04-10",
+    "runtimeMins": 108,
+    "posterUrl": "https://images.unsplash.com/photo-1518063250682-1a42337a76c8?q=80&w=1000&auto=format&fit=crop",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.0,
+    "rottenTomatoesRating": "88%",
+    "genres": [
+      {
+        "name": "Comedy"
+      },
+      {
+        "name": "Fantasy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ],
+    "id": "44444444-4444-4444-4444-444444444444"
+  },
+  {
+    "title": "Cinematic Masterpiece 5",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 5.",
+    "releaseDate": "2025-08-14",
+    "runtimeMins": 163,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=4",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.6,
+    "rottenTomatoesRating": "97%",
+    "genres": [
+      {
+        "name": "Romance"
+      },
+      {
+        "name": "Fantasy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ],
+    "id": "55555555-5555-5555-5555-555555555555"
+  },
+  {
+    "title": "Cinematic Masterpiece 6",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 6.",
+    "releaseDate": "2026-06-07",
+    "runtimeMins": 116,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=5",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.9,
+    "rottenTomatoesRating": "60%",
+    "genres": [
+      {
+        "name": "Horror"
+      },
+      {
+        "name": "Comedy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Martin Scorsese",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Timoth\u00e9e Chalamet",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 7",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 7.",
+    "releaseDate": "2025-07-04",
+    "runtimeMins": 109,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=6",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.5,
+    "rottenTomatoesRating": "89%",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Sci-Fi"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 8",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 8.",
+    "releaseDate": "2025-10-24",
+    "runtimeMins": 175,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=7",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.4,
+    "rottenTomatoesRating": "97%",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Comedy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Peter Jackson",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 9",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 9.",
+    "releaseDate": "2025-11-22",
+    "runtimeMins": 166,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=8",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.7,
+    "rottenTomatoesRating": "80%",
+    "genres": [
+      {
+        "name": "Drama"
+      },
+      {
+        "name": "Romance"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Steven Spielberg",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 10",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 10.",
+    "releaseDate": "2026-06-07",
+    "runtimeMins": 115,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=9",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.8,
+    "rottenTomatoesRating": "86%",
+    "genres": [
+      {
+        "name": "Animation"
+      },
+      {
+        "name": "Comedy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Quentin Tarantino",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Cillian Murphy",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Leonardo DiCaprio",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 11",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 11.",
+    "releaseDate": "2025-10-22",
+    "runtimeMins": 100,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=10",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.8,
+    "rottenTomatoesRating": "46%",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Horror"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 12",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 12.",
+    "releaseDate": "2025-11-20",
+    "runtimeMins": 147,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=11",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.8,
+    "rottenTomatoesRating": "45%",
+    "genres": [
+      {
+        "name": "Thriller"
+      },
+      {
+        "name": "Action"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 13",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 13.",
+    "releaseDate": "2026-01-05",
+    "runtimeMins": 161,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=12",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.8,
+    "rottenTomatoesRating": "57%",
+    "genres": [
+      {
+        "name": "Thriller"
+      },
+      {
+        "name": "Romance"
+      }
+    ],
+    "crew": [
+      {
+        "name": "James Cameron",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Leonardo DiCaprio",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 14",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 14.",
+    "releaseDate": "2025-08-27",
+    "runtimeMins": 103,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=13",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.9,
+    "rottenTomatoesRating": "45%",
+    "genres": [
+      {
+        "name": "Horror"
+      },
+      {
+        "name": "Adventure"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Martin Scorsese",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Leonardo DiCaprio",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 15",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 15.",
+    "releaseDate": "2025-10-20",
+    "runtimeMins": 175,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=14",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.2,
+    "rottenTomatoesRating": "71%",
+    "genres": [
+      {
+        "name": "Sci-Fi"
+      },
+      {
+        "name": "Drama"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Christopher Nolan",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Cillian Murphy",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 16",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 16.",
+    "releaseDate": "2025-10-18",
+    "runtimeMins": 109,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=15",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.0,
+    "rottenTomatoesRating": "93%",
+    "genres": [
+      {
+        "name": "Drama"
+      },
+      {
+        "name": "Romance"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Brad Pitt",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Timoth\u00e9e Chalamet",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 17",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 17.",
+    "releaseDate": "2025-08-09",
+    "runtimeMins": 175,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=16",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.9,
+    "rottenTomatoesRating": "75%",
+    "genres": [
+      {
+        "name": "Horror"
+      },
+      {
+        "name": "Thriller"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Steven Spielberg",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 18",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 18.",
+    "releaseDate": "2025-11-08",
+    "runtimeMins": 173,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=17",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.0,
+    "rottenTomatoesRating": "58%",
+    "genres": [
+      {
+        "name": "Sci-Fi"
+      },
+      {
+        "name": "Romance"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Martin Scorsese",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Brad Pitt",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 19",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 19.",
+    "releaseDate": "2025-09-30",
+    "runtimeMins": 95,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=18",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 9.0,
+    "rottenTomatoesRating": "99%",
+    "genres": [
+      {
+        "name": "Animation"
+      },
+      {
+        "name": "Fantasy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Martin Scorsese",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Brad Pitt",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 20",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 20.",
+    "releaseDate": "2026-01-21",
+    "runtimeMins": 171,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=19",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.7,
+    "rottenTomatoesRating": "83%",
+    "genres": [
+      {
+        "name": "Romance"
+      },
+      {
+        "name": "Drama"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Martin Scorsese",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Cillian Murphy",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 21",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 21.",
+    "releaseDate": "2025-08-14",
+    "runtimeMins": 124,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=20",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.9,
+    "rottenTomatoesRating": "56%",
+    "genres": [
+      {
+        "name": "Horror"
+      },
+      {
+        "name": "Fantasy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Steven Spielberg",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 22",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 22.",
+    "releaseDate": "2026-01-11",
+    "runtimeMins": 122,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=21",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.9,
+    "rottenTomatoesRating": "76%",
+    "genres": [
+      {
+        "name": "Animation"
+      },
+      {
+        "name": "Fantasy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 23",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 23.",
+    "releaseDate": "2025-07-29",
+    "runtimeMins": 111,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=22",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.0,
+    "rottenTomatoesRating": "79%",
+    "genres": [
+      {
+        "name": "Horror"
+      },
+      {
+        "name": "Drama"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Timoth\u00e9e Chalamet",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 24",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 24.",
+    "releaseDate": "2026-01-31",
+    "runtimeMins": 158,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=23",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.6,
+    "rottenTomatoesRating": "47%",
+    "genres": [
+      {
+        "name": "Fantasy"
+      },
+      {
+        "name": "Comedy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Martin Scorsese",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 25",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 25.",
+    "releaseDate": "2025-10-10",
+    "runtimeMins": 159,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=24",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.8,
+    "rottenTomatoesRating": "74%",
+    "genres": [
+      {
+        "name": "Drama"
+      },
+      {
+        "name": "Comedy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Brad Pitt",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 26",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 26.",
+    "releaseDate": "2026-02-13",
+    "runtimeMins": 174,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=25",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.0,
+    "rottenTomatoesRating": "88%",
+    "genres": [
+      {
+        "name": "Thriller"
+      },
+      {
+        "name": "Action"
+      }
+    ],
+    "crew": [
+      {
+        "name": "James Cameron",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 27",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 27.",
+    "releaseDate": "2025-06-26",
+    "runtimeMins": 102,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=26",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.7,
+    "rottenTomatoesRating": "98%",
+    "genres": [
+      {
+        "name": "Fantasy"
+      },
+      {
+        "name": "Thriller"
+      }
+    ],
+    "crew": [
+      {
+        "name": "James Cameron",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 28",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 28.",
+    "releaseDate": "2025-11-16",
+    "runtimeMins": 106,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=27",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.3,
+    "rottenTomatoesRating": "95%",
+    "genres": [
+      {
+        "name": "Thriller"
+      },
+      {
+        "name": "Animation"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Steven Spielberg",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 29",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 29.",
+    "releaseDate": "2026-05-12",
+    "runtimeMins": 170,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=28",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.3,
+    "rottenTomatoesRating": "97%",
+    "genres": [
+      {
+        "name": "Comedy"
+      },
+      {
+        "name": "Drama"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Brad Pitt",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 30",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 30.",
+    "releaseDate": "2025-12-12",
+    "runtimeMins": 145,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=29",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.1,
+    "rottenTomatoesRating": "60%",
+    "genres": [
+      {
+        "name": "Thriller"
+      },
+      {
+        "name": "Adventure"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 31",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 31.",
+    "releaseDate": "2025-12-21",
+    "runtimeMins": 141,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=30",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.5,
+    "rottenTomatoesRating": "95%",
+    "genres": [
+      {
+        "name": "Romance"
+      },
+      {
+        "name": "Fantasy"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Denis Villeneuve",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Scarlett Johansson",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Leonardo DiCaprio",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 32",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 32.",
+    "releaseDate": "2025-10-04",
+    "runtimeMins": 148,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=31",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.9,
+    "rottenTomatoesRating": "69%",
+    "genres": [
+      {
+        "name": "Fantasy"
+      },
+      {
+        "name": "Adventure"
+      }
+    ],
+    "crew": [
+      {
+        "name": "James Cameron",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 33",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 33.",
+    "releaseDate": "2025-08-28",
+    "runtimeMins": 111,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=32",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.4,
+    "rottenTomatoesRating": "88%",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Thriller"
+      }
+    ],
+    "crew": [
+      {
+        "name": "James Cameron",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Zendaya",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 34",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 34.",
+    "releaseDate": "2025-08-19",
+    "runtimeMins": 102,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=33",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 9.1,
+    "rottenTomatoesRating": "92%",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Adventure"
+      }
+    ],
+    "crew": [
+      {
+        "name": "James Cameron",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Cillian Murphy",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 35",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 35.",
+    "releaseDate": "2026-05-01",
+    "runtimeMins": 117,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=34",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 6.6,
+    "rottenTomatoesRating": "78%",
+    "genres": [
+      {
+        "name": "Thriller"
+      },
+      {
+        "name": "Horror"
+      }
+    ],
+    "crew": [
+      {
+        "name": "James Cameron",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Cillian Murphy",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Timoth\u00e9e Chalamet",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 36",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 36.",
+    "releaseDate": "2026-02-10",
+    "runtimeMins": 166,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=35",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.4,
+    "rottenTomatoesRating": "85%",
+    "genres": [
+      {
+        "name": "Romance"
+      },
+      {
+        "name": "Thriller"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Leonardo DiCaprio",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Timoth\u00e9e Chalamet",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 37",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 37.",
+    "releaseDate": "2025-08-28",
+    "runtimeMins": 115,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=36",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 7.3,
+    "rottenTomatoesRating": "90%",
+    "genres": [
+      {
+        "name": "Animation"
+      },
+      {
+        "name": "Sci-Fi"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Brad Pitt",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Brad Pitt",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 38",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 38.",
+    "releaseDate": "2025-12-26",
+    "runtimeMins": 168,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=37",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.2,
+    "rottenTomatoesRating": "76%",
+    "genres": [
+      {
+        "name": "Adventure"
+      },
+      {
+        "name": "Thriller"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Quentin Tarantino",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Timoth\u00e9e Chalamet",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Margot Robbie",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 39",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 39.",
+    "releaseDate": "2025-12-20",
+    "runtimeMins": 97,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=38",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 8.1,
+    "rottenTomatoesRating": "90%",
+    "genres": [
+      {
+        "name": "Fantasy"
+      },
+      {
+        "name": "Sci-Fi"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Peter Jackson",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  },
+  {
+    "title": "Cinematic Masterpiece 40",
+    "synopsis": "An unforgettable journey into the unknown where characters face their deepest fears in chapter 40.",
+    "releaseDate": "2026-01-03",
+    "runtimeMins": 136,
+    "posterUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&sig=39",
+    "bannerUrl": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop",
+    "status": "NOW_SHOWING",
+    "imdbRating": 5.0,
+    "rottenTomatoesRating": "88%",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Animation"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Greta Gerwig",
+        "role": "Director",
+        "photoUrl": ""
+      },
+      {
+        "name": "Tom Cruise",
+        "role": "Actor",
+        "photoUrl": ""
+      },
+      {
+        "name": "Ryan Gosling",
+        "role": "Actor",
+        "photoUrl": ""
+      }
+    ]
+  }
+]
