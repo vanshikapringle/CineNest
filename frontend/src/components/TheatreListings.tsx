@@ -24,8 +24,9 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
         for (const theatre of fetchedTheatres) {
           const shows = await getShowsByTheatre(theatre.id);
           const movieShows = shows.filter((s: any) => {
-            // s.showDate is already "YYYY-MM-DD" from the backend. Do not parse it with new Date() as it causes timezone shifts.
-            return s.movieId === movieId && s.showDate === date;
+            const matchMovie = String(s.movieId).trim().toLowerCase() === String(movieId).trim().toLowerCase();
+            const matchDate = String(s.showDate).trim().startsWith(String(date).trim());
+            return matchMovie && matchDate;
           });
           
           if (movieShows.length > 0) {
@@ -81,6 +82,14 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
         <Clock className="w-8 h-8 mb-3 opacity-50" />
         <p>No shows available on this date for the selected movie.</p>
         <p className="text-sm mt-2 opacity-70">Try selecting a different date from the top.</p>
+        {import.meta.env.DEV && (
+          <div className="mt-8 text-left text-xs bg-black/50 p-4 rounded overflow-auto max-w-full">
+            <p className="text-red-400 font-bold mb-2">DEBUG INFO (DEV ONLY):</p>
+            <p>Target MovieId: {movieId}</p>
+            <p>Target Date: {date}</p>
+            <p>Selected City: {selectedCity || 'none'}</p>
+          </div>
+        )}
       </div>
     );
   }
