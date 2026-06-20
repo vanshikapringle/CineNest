@@ -11,7 +11,7 @@ interface MoviesSectionProps {
 
 export function MoviesSection({ movies, isLoading, isError, isClickable = true }: MoviesSectionProps) {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 20;
   const totalPages = movies ? Math.ceil(movies.length / itemsPerPage) : 0;
   const currentMovies = movies ? movies.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
   return (
@@ -69,7 +69,7 @@ export function MoviesSection({ movies, isLoading, isError, isClickable = true }
 
       {!isLoading && !isError && currentMovies && currentMovies.length > 0 && (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {currentMovies.map((movie: any, idx: number) => (
               <motion.div
                 key={movie.id}

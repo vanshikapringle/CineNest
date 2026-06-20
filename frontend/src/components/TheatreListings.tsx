@@ -23,7 +23,7 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
           const shows = await getShowsByTheatre(theatre.id);
           // Filter by movieId AND the selected date (handling potential timezone 'T' string formats)
           const movieShows = shows.filter((s: any) => {
-            const rawDate = s.showDate.includes('T') ? s.showDate.split('T')[0] : s.showDate;
+            const rawDate = new Date(s.showDate).toLocaleDateString('en-CA');
             return s.movieId === movieId && rawDate === date;
           });
           

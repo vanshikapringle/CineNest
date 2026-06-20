@@ -8,6 +8,7 @@ export function DashboardNavbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showNotifications, setShowNotifications] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Derive active tab from location or just default
   let activeTab = 'Home';
@@ -85,26 +86,48 @@ export function DashboardNavbar() {
             </div>
           )}
         </div>
-        <div 
-          className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors"
-          onClick={() => navigate('/dashboard')}
-        >
-          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-white to-gray-300 text-black flex items-center justify-center text-xs font-bold shadow-inner">
-            {user?.name?.charAt(0).toUpperCase() || 'V'}
+        <div className="relative">
+          <div 
+            className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors"
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-white to-gray-300 text-black flex items-center justify-center text-xs font-bold shadow-inner">
+              {user?.name?.charAt(0).toUpperCase() || 'V'}
+            </div>
+            <span className="text-sm font-medium hidden sm:block tracking-wide">{user?.name || 'Vanshika'}</span>
           </div>
-          <span className="text-sm font-medium hidden sm:block tracking-wide">{user?.name || 'User'}</span>
+
+          {dropdownOpen && (
+            <div className="absolute right-0 mt-2 w-56 bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl py-2 z-50">
+              <div className="px-4 py-3 border-b border-white/5">
+                <p className="text-sm text-white font-medium">{user?.name}</p>
+                <p className="text-xs text-gray-400 truncate">{user?.email}</p>
+              </div>
+              <div className="py-2">
+                <button 
+                  onClick={() => {
+                    setDropdownOpen(false);
+                    navigate('/dashboard?tab=Settings');
+                  }}
+                  className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <Settings className="w-4 h-4" /> Settings
+                </button>
+              </div>
+              <div className="pt-2 border-t border-white/5">
+                <button 
+                  onClick={() => {
+                    logout();
+                    navigate('/');
+                  }}
+                  className="w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-red-500/10 transition-colors flex items-center gap-2"
+                >
+                  <LogOut className="w-4 h-4" /> Sign Out
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-        
-        <button 
-          onClick={() => {
-            logout();
-            navigate('/');
-          }}
-          className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-full transition-colors"
-          title="Sign Out"
-        >
-          <LogOut className="w-5 h-5" />
-        </button>
       </div>
     </header>
   );

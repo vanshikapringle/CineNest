@@ -14,8 +14,9 @@ export function DashboardPage() {
   const [selectedYear, setSelectedYear] = useState('Any Year');
   const [activeTab, setActiveTab] = useState('Home');
   const [showNotifications, setShowNotifications] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 20;
 
   const years = ["Any Year", "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"];
 
@@ -136,14 +137,47 @@ export function DashboardPage() {
               </div>
             )}
           </div>
-          <div 
-            className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors"
-            onClick={() => setActiveTab('Settings')}
-          >
-            <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-white to-gray-300 text-black flex items-center justify-center text-xs font-bold shadow-inner">
-              {user?.name?.charAt(0).toUpperCase() || 'V'}
+          <div className="relative">
+            <div 
+              className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full cursor-pointer hover:bg-white/10 transition-colors"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-white to-gray-300 text-black flex items-center justify-center text-xs font-bold shadow-inner">
+                {user?.name?.charAt(0).toUpperCase() || 'V'}
+              </div>
+              <span className="text-sm font-medium hidden sm:block tracking-wide">{user?.name || 'Vanshika'}</span>
             </div>
-            <span className="text-sm font-medium hidden sm:block tracking-wide">{user?.name || 'Vanshika'}</span>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-56 bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl py-2 z-50">
+                <div className="px-4 py-3 border-b border-white/5">
+                  <p className="text-sm text-white font-medium">{user?.name}</p>
+                  <p className="text-xs text-gray-400 truncate">{user?.email}</p>
+                </div>
+                <div className="py-2">
+                  <button 
+                    onClick={() => {
+                      setDropdownOpen(false);
+                      setActiveTab('Settings');
+                    }}
+                    className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white transition-colors flex items-center gap-2"
+                  >
+                    <Settings className="w-4 h-4" /> Settings
+                  </button>
+                </div>
+                <div className="pt-2 border-t border-white/5">
+                  <button 
+                    onClick={() => {
+                      logout();
+                      navigate('/');
+                    }}
+                    className="w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-red-500/10 transition-colors flex items-center gap-2"
+                  >
+                    <LogOut className="w-4 h-4" /> Sign Out
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
           
           <button 
@@ -239,7 +273,7 @@ export function DashboardPage() {
             </div>
           ) : currentMovies && currentMovies.length > 0 ? (
             <>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8 pb-12">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pb-12">
                 {currentMovies.map((movie: any, idx: number) => (
                   <div 
                     key={movie.id} 

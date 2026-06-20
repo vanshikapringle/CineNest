@@ -16,7 +16,7 @@ export function BookingPage() {
     d.setDate(d.getDate() + i);
     const dayName = d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase();
     const dayNum = d.getDate().toString();
-    const dateStr = d.toISOString().split('T')[0];
+    const dateStr = d.toLocaleDateString('en-CA');
     return {
       date: dateStr,
       dayName: dayName,

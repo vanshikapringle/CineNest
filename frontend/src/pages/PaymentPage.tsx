@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
-import { createBooking, confirmBooking, processPayment } from '../services/api';
+import { createBooking, processPayment, confirmBooking } from '../services/api';
 import { useQueryClient } from '@tanstack/react-query';
 import { DashboardNavbar } from '../components/DashboardNavbar';
 
@@ -28,19 +28,26 @@ export function PaymentPage() {
         // 1. Create PENDING Booking
         const tickets = selectedSeats.map((seat: any) => ({
           seatId: seat.id,
-          price: totalAmount / selectedSeats.length // Simplified price split
+          price: totalAmount / selectedSeats.length
         }));
 
-        // Purely frontend mock to ensure it never fails as requested
-        const fakeBookingId = "BK-" + Math.floor(Math.random() * 1000000);
-        const confirmedBooking = {
-            id: fakeBookingId,
-            userId: user.id,
-            showId: showId,
-            status: 'CONFIRMED',
-            totalAmount: totalAmount,
-            createdAt: new Date().toISOString()
+        const bookingReq = {
+          userId: user.id,
+          showId: showId,
+          totalAmount: totalAmount,
+          tickets: tickets
         };
+        
+        const newBooking = await createBooking(bookingReq);
+
+        // 2. Process Payment
+        await processPayment({
+          bookingId: newBooking.id,
+          amount: totalAmount
+        });
+
+        // 3. Confirm Booking
+        const confirmedBooking = await confirmBooking(newBooking.id);
 
         setStatus('SUCCESS');
         
