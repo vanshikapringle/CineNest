@@ -23,10 +23,9 @@ export function TheatreListings({ movieId, date }: { movieId: string, date: stri
         const showsMap: Record<string, any[]> = {};
         for (const theatre of fetchedTheatres) {
           const shows = await getShowsByTheatre(theatre.id);
-          // Filter by movieId AND the selected date (handling potential timezone 'T' string formats)
           const movieShows = shows.filter((s: any) => {
-            const rawDate = new Date(s.showDate).toLocaleDateString('en-CA');
-            return s.movieId === movieId && rawDate === date;
+            // s.showDate is already "YYYY-MM-DD" from the backend. Do not parse it with new Date() as it causes timezone shifts.
+            return s.movieId === movieId && s.showDate === date;
           });
           
           // Sort shows by time
