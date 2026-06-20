@@ -22,9 +22,9 @@ export function TicketPage() {
   }, [isAuthenticated, navigate]);
 
   const { data: show } = useQuery({
-    queryKey: ['show', confirmedBooking?.showId],
-    queryFn: () => getShowByIdLive(confirmedBooking?.showId!),
-    enabled: !!confirmedBooking?.showId,
+    queryKey: ['show', confirmedBooking?.showId || confirmedBooking?.show?.id],
+    queryFn: () => getShowByIdLive(confirmedBooking?.showId || confirmedBooking?.show?.id),
+    enabled: !!(confirmedBooking?.showId || confirmedBooking?.show?.id),
   });
 
   const { data: movies } = useQuery({
@@ -36,7 +36,8 @@ export function TicketPage() {
     return <div className="min-h-screen bg-midnight-black text-white flex items-center justify-center">Booking not found.</div>;
   }
 
-  const movie = movies?.find(m => m.id === show?.movieId);
+  const actualShow = show || confirmedBooking?.show;
+  const movie = movies?.find(m => String(m.id) === String(actualShow?.movieId));
   const seatsStr = selectedSeats?.map((s: any) => `${s.row}-${s.number}`).join(', ') || 'N/A';
 
   return (
@@ -88,11 +89,11 @@ export function TicketPage() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-1 flex items-center gap-1"><Calendar className="w-3 h-3"/> Date</p>
-                  <p className="text-white font-medium text-sm">{show?.showDate || 'N/A'}</p>
+                  <p className="text-white font-medium text-sm">{actualShow?.showDate || 'N/A'}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-1 flex items-center gap-1"><Clock className="w-3 h-3"/> Time</p>
-                  <p className="text-white font-medium text-sm">{show?.showTime || 'N/A'}</p>
+                  <p className="text-white font-medium text-sm">{actualShow?.showTime?.substring(0,5) || 'N/A'}</p>
                 </div>
               </div>
 

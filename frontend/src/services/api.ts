@@ -50,7 +50,9 @@ export const getMovieById = async (id: string) => {
 };
 
 export const getTheatres = async (city?: string) => {
-  const { data } = await apiClient.get('/theatres', { params: { city } });
+  // Database stores 'Delhi', but frontend previously allowed 'Delhi-NCR'
+  const mappedCity = city === 'Delhi-NCR' ? 'Delhi' : city;
+  const { data } = await apiClient.get('/theatres', { params: { city: mappedCity } });
   return data;
 };
 

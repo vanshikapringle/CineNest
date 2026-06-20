@@ -180,26 +180,28 @@ export function MovieDetailsPage() {
       </div>
 
       {/* Cast & Crew Section */}
+      {movie?.castMembers && movie.castMembers.length > 0 && (
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-12">
         <h2 className="text-2xl font-heading font-bold text-white mb-8 border-b border-white/10 pb-4">Cast & Crew</h2>
         
         <div className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide">
-          {displayCrew.map((member: any, idx: number) => (
-            <div key={idx} className="flex flex-col items-center shrink-0 w-28 group">
+          {movie.castMembers.filter((c: any) => c.role === 'CAST').map((member: any) => (
+            <div key={member.id} className="flex flex-col items-center shrink-0 w-28 group">
               <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-transparent group-hover:border-[#14b8a6] transition-colors duration-300 shadow-xl">
                 <img 
-                  src={member.photoUrl || member.photo_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`} 
+                  src={member.imageUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`} 
                   alt={member.name} 
                   onError={(e) => { e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=14b8a6&color=fff&size=200`; }}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
                 />
               </div>
               <span className="text-white text-sm font-semibold text-center leading-tight mb-1">{member.name}</span>
-              <span className="text-gray-400 text-xs text-center uppercase tracking-wider">{member.role}</span>
+              <span className="text-gray-400 text-xs text-center uppercase tracking-wider">{member.characterName || 'Actor'}</span>
             </div>
           ))}
         </div>
       </div>
+      )}
 
     </div>
   );

@@ -25,10 +25,6 @@ public interface MovieRepository extends JpaRepository<Movie, UUID> {
     List<Movie> findByStatus(String status);
     
     @EntityGraph(attributePaths = {"genres", "crew"})
-    @Query("SELECT DISTINCT m FROM Movie m LEFT JOIN m.crew c LEFT JOIN m.genres g " +
-           "WHERE LOWER(m.title) LIKE LOWER(CONCAT('%', :query, '%')) " +
-           "OR LOWER(m.description) LIKE LOWER(CONCAT('%', :query, '%')) " +
-           "OR LOWER(c.name) LIKE LOWER(CONCAT('%', :query, '%')) " +
-           "OR LOWER(g.name) LIKE LOWER(CONCAT('%', :query, '%'))")
+    @Query("SELECT DISTINCT m FROM Movie m LEFT JOIN m.castMembers c WHERE LOWER(m.title) LIKE LOWER(CONCAT('%', :query, '%')) OR LOWER(m.director) LIKE LOWER(CONCAT('%', :query, '%')) OR LOWER(c.name) LIKE LOWER(CONCAT('%', :query, '%'))")
     List<Movie> searchMovies(@Param("query") String query);
 }

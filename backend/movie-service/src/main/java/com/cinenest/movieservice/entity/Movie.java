@@ -5,6 +5,8 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.UUID;
 import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "movies")
@@ -57,6 +59,9 @@ public class Movie {
         inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
     private Set<Genre> genres;
+    
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CastMember> castMembers = new ArrayList<>();
     
     @ManyToMany
     @JoinTable(

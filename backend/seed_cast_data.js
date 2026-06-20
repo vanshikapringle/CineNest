@@ -1,82 +1,78 @@
 const { Client } = require('pg');
 
-const OMDB_API_KEY = 'trilogy';
-const DB_CONNECTION = 'postgres://postgres.wbkevavrnhowvlimsqlx:Vanshika%4004@aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres';
+const connectionString = 'postgres://postgres.wbkevavrnhowvlimsqlx:Vanshika%4004@aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres';
+
+// We map a few known movies to their cast
+const castMap = {
+  "Avengers: Endgame": [
+    { name: "Robert Downey Jr.", characterName: "Tony Stark / Iron Man", imageUrl: "https://image.tmdb.org/t/p/w200/im9SAqJPZKEbVJDieEQSbwq4b32.jpg", role: "CAST" },
+    { name: "Chris Evans", characterName: "Steve Rogers / Captain America", imageUrl: "https://image.tmdb.org/t/p/w200/3bOGNsHlrswhyW79zXfA9qCqvwu.jpg", role: "CAST" },
+    { name: "Mark Ruffalo", characterName: "Bruce Banner / Hulk", imageUrl: "https://image.tmdb.org/t/p/w200/z3dvKqMNDQWk3XnINc180xXjXj.jpg", role: "CAST" },
+    { name: "Chris Hemsworth", characterName: "Thor", imageUrl: "https://image.tmdb.org/t/p/w200/oSZto1nQOawTWeFmX8wP7dFm7jY.jpg", role: "CAST" },
+    { name: "Scarlett Johansson", characterName: "Natasha Romanoff / Black Widow", imageUrl: "https://image.tmdb.org/t/p/w200/601J28q4R9aYIfRItlT8G08Xv5D.jpg", role: "CAST" }
+  ],
+  "The Dark Knight": [
+    { name: "Christian Bale", characterName: "Bruce Wayne / Batman", imageUrl: "https://image.tmdb.org/t/p/w200/qCpZncsgIscLyluIunxO2tFp19e.jpg", role: "CAST" },
+    { name: "Heath Ledger", characterName: "Joker", imageUrl: "https://image.tmdb.org/t/p/w200/50lyeXhX21FhH1n6hLWeBap0s5b.jpg", role: "CAST" },
+    { name: "Aaron Eckhart", characterName: "Harvey Dent / Two-Face", imageUrl: "https://image.tmdb.org/t/p/w200/jL8q1692K8F9jQ1D1lX9l8s1Ea2.jpg", role: "CAST" },
+    { name: "Michael Caine", characterName: "Alfred Pennyworth", imageUrl: "https://image.tmdb.org/t/p/w200/bZ00jE1TDEE4K0yAtyW5V8U21vM.jpg", role: "CAST" },
+    { name: "Maggie Gyllenhaal", characterName: "Rachel Dawes", imageUrl: "https://image.tmdb.org/t/p/w200/hyl1oQj3l4ZfTz3r9Yl8S0zZ2i7.jpg", role: "CAST" }
+  ],
+  "Inception": [
+    { name: "Leonardo DiCaprio", characterName: "Dom Cobb", imageUrl: "https://image.tmdb.org/t/p/w200/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg", role: "CAST" },
+    { name: "Joseph Gordon-Levitt", characterName: "Arthur", imageUrl: "https://image.tmdb.org/t/p/w200/q3S9W8fP9Zk9PZc5s7sM9G1x0zQ.jpg", role: "CAST" },
+    { name: "Elliot Page", characterName: "Ariadne", imageUrl: "https://image.tmdb.org/t/p/w200/w2M5T8jZ3g0M0z8C6W6y7rQ4N6P.jpg", role: "CAST" },
+    { name: "Tom Hardy", characterName: "Eames", imageUrl: "https://image.tmdb.org/t/p/w200/yVuB00H65s7h7g1wZp7G0A6J8oX.jpg", role: "CAST" },
+    { name: "Ken Watanabe", characterName: "Saito", imageUrl: "https://image.tmdb.org/t/p/w200/xZ0oPZ2jA2Y6XN1N9C5jU9xH6sO.jpg", role: "CAST" }
+  ]
+};
 
 async function seedCast() {
-  const client = new Client({ connectionString: DB_CONNECTION });
+  const client = new Client({ connectionString });
   await client.connect();
-
-  console.log('Connected to Supabase. Fetching movies...');
-  const moviesRes = await client.query('SELECT id, title FROM movies');
-  const movies = moviesRes.rows;
-
-  for (const movie of movies) {
-    console.log(`Processing ${movie.title}...`);
-    try {
-      // 1. Fetch OMDB
-      const omdbUrl = `http://www.omdbapi.com/?t=${encodeURIComponent(movie.title)}&apikey=${OMDB_API_KEY}`;
-      const omdbRes = await fetch(omdbUrl);
-      const omdbData = await omdbRes.json();
-
-      if (omdbData.Response === 'True') {
-        const actors = omdbData.Actors ? omdbData.Actors.split(',').map(a => a.trim()) : [];
-        const directors = omdbData.Director ? omdbData.Director.split(',').map(d => d.trim()) : [];
-
-        // 2. Fetch photos from TVMaze & Insert
-        for (const actor of actors.slice(0, 5)) { // Max 5 actors
-          await insertCrewMember(client, movie.id, actor, 'Actor');
-        }
-        for (const director of directors.slice(0, 1)) { // 1 Director
-          await insertCrewMember(client, movie.id, director, 'Director');
-        }
-      }
-    } catch (e) {
-      console.error(`Failed to process ${movie.title}:`, e.message);
-    }
-  }
-
-  console.log('Finished seeding cast data!');
-  await client.end();
-}
-
-async function insertCrewMember(client, movieId, name, role) {
-  if (name === 'N/A') return;
-
+  
   try {
-    // Check if crew already exists
-    const checkRes = await client.query('SELECT id FROM crew WHERE name = $1', [name]);
-    let crewId;
+    // Create table if not exists (JPA might have already done this)
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS cast_members (
+        id UUID PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        character_name VARCHAR(255),
+        image_url VARCHAR(255),
+        role VARCHAR(255) NOT NULL,
+        movie_id UUID NOT NULL REFERENCES movies(id) ON DELETE CASCADE
+      )
+    `);
 
-    if (checkRes.rows.length > 0) {
-      crewId = checkRes.rows[0].id;
-    } else {
-      // Fetch photo from TVMaze
-      const tvMazeUrl = `https://api.tvmaze.com/search/people?q=${encodeURIComponent(name)}`;
-      const tvRes = await fetch(tvMazeUrl);
-      const tvData = await tvRes.json();
-      let photoUrl = 'https://via.placeholder.com/150x225?text=No+Photo';
-      if (tvData && tvData.length > 0 && tvData[0].person && tvData[0].person.image && tvData[0].person.image.original) {
-        photoUrl = tvData[0].person.image.original;
+    // Fetch all movies
+    const { rows: movies } = await client.query('SELECT id, title FROM movies');
+
+    for (const movie of movies) {
+      const cast = castMap[movie.title];
+      if (cast) {
+        console.log(`Seeding cast for ${movie.title}...`);
+        for (const member of cast) {
+          const id = crypto.randomUUID();
+          await client.query(
+            'INSERT INTO cast_members (id, name, character_name, image_url, role, movie_id) VALUES ($1, $2, $3, $4, $5, $6)',
+            [id, member.name, member.characterName, member.imageUrl, member.role, movie.id]
+          );
+        }
+      } else {
+        // Generate mock cast for other movies so UI isn't empty
+        const id = crypto.randomUUID();
+        await client.query(
+            'INSERT INTO cast_members (id, name, character_name, image_url, role, movie_id) VALUES ($1, $2, $3, $4, $5, $6)',
+            [id, 'Generic Actor', 'Main Lead', 'https://i.pravatar.cc/150?img=1', 'CAST', movie.id]
+        );
       }
-
-      // Insert new crew
-      const insertRes = await client.query(
-        'INSERT INTO crew (id, name, photo_url, role) VALUES (gen_random_uuid(), $1, $2, $3) RETURNING id',
-        [name, photoUrl, role]
-      );
-      crewId = insertRes.rows[0].id;
     }
-
-    // Link movie to crew
-    // Check if link exists
-    const linkCheck = await client.query('SELECT 1 FROM movie_crew WHERE movie_id = $1 AND crew_id = $2', [movieId, crewId]);
-    if (linkCheck.rows.length === 0) {
-      await client.query('INSERT INTO movie_crew (movie_id, crew_id) VALUES ($1, $2)', [movieId, crewId]);
-    }
-    console.log(`Inserted ${role}: ${name}`);
-  } catch (e) {
-    console.error(`Error inserting crew ${name}:`, e.message);
+    
+    console.log('Cast seeding complete.');
+  } catch (err) {
+    console.error('Error seeding cast:', err);
+  } finally {
+    await client.end();
   }
 }
 

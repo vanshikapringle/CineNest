@@ -3,7 +3,7 @@ import { useCityStore } from '../store/useCityStore';
 import { Search, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const POPULAR_CITIES = ['Mumbai', 'Delhi-NCR', 'Bengaluru', 'Hyderabad', 'Chandigarh', 'Chennai', 'Pune', 'Kolkata'];
+const POPULAR_CITIES = ['Mumbai', 'Delhi', 'Bengaluru', 'Hyderabad', 'Chandigarh', 'Chennai', 'Pune', 'Kolkata'];
 
 export function CitySelectionModal() {
   const setCity = useCityStore((state) => state.setCity);

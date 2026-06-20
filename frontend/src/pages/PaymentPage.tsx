@@ -28,6 +28,8 @@ export function PaymentPage() {
         // 1. Create PENDING Booking
         const tickets = selectedSeats.map((seat: any) => ({
           seatId: seat.id,
+          seatRow: seat.row,
+          seatNumber: seat.number,
           price: totalAmount / selectedSeats.length
         }));
 
@@ -75,12 +77,12 @@ export function PaymentPage() {
         className="min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center p-4 relative pt-24"
         style={{ backgroundImage: `url('/film-grain-overlay.jpeg')`, backgroundBlendMode: 'overlay', backgroundColor: 'rgba(0,0,0,0.8)' }}
       >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0"></div>
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-[#111111]/90 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-md w-full text-center relative z-10 shadow-2xl"
-      >
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0 pointer-events-none"></div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-[#111111]/90 backdrop-blur-md border border-white/10 rounded-2xl p-8 max-w-md w-full text-center relative z-10 shadow-2xl"
+        >
         {status === 'PROCESSING' && (
           <div className="flex flex-col items-center">
             <div className="relative">

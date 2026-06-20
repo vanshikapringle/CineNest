@@ -14,37 +14,31 @@ public class Show {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    // References to other microservices (we store IDs instead of foreign keys since they live in different DBs)
     @Column(name = "movie_id", nullable = false)
-    private UUID movieId;
-
-    @Column(name = "theatre_id", nullable = false)
-    private UUID theatreId;
+    private String movieId;
 
     @Column(name = "screen_id", nullable = false)
     private UUID screenId;
 
-    @Column(name = "start_time", nullable = false)
-    private LocalDateTime startTime;
+    @Column(name = "show_date", nullable = false)
+    private java.time.LocalDate showDate;
 
-    @Column(name = "end_time", nullable = false)
-    private LocalDateTime endTime;
+    @Column(name = "show_time", nullable = false)
+    private java.time.LocalTime showTime;
 
-    @Column(name = "price_multiplier")
-    private Double priceMultiplier = 1.0;
+    @Column(name = "base_price", nullable = false)
+    private Double basePrice;
 
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
-    public UUID getMovieId() { return movieId; }
-    public void setMovieId(UUID movieId) { this.movieId = movieId; }
-    public UUID getTheatreId() { return theatreId; }
-    public void setTheatreId(UUID theatreId) { this.theatreId = theatreId; }
+    public String getMovieId() { return movieId; }
+    public void setMovieId(String movieId) { this.movieId = movieId; }
     public UUID getScreenId() { return screenId; }
     public void setScreenId(UUID screenId) { this.screenId = screenId; }
-    public LocalDateTime getStartTime() { return startTime; }
-    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
-    public LocalDateTime getEndTime() { return endTime; }
-    public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
-    public Double getPriceMultiplier() { return priceMultiplier; }
-    public void setPriceMultiplier(Double priceMultiplier) { this.priceMultiplier = priceMultiplier; }
+    public java.time.LocalDate getShowDate() { return showDate; }
+    public void setShowDate(java.time.LocalDate showDate) { this.showDate = showDate; }
+    public java.time.LocalTime getShowTime() { return showTime; }
+    public void setShowTime(java.time.LocalTime showTime) { this.showTime = showTime; }
+    public Double getBasePrice() { return basePrice; }
+    public void setBasePrice(Double basePrice) { this.basePrice = basePrice; }
 }

@@ -10,5 +10,4 @@ import java.util.UUID;
 
 @Repository
 public interface ShowRepository extends JpaRepository<Show, UUID> {
-    List<Show> findByMovieIdAndStartTimeAfter(UUID movieId, LocalDateTime startTime);
 }
