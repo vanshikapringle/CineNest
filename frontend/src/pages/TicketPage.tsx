@@ -6,12 +6,13 @@ import { getShowByIdLive, getMovies } from '../services/api';
 import { useEffect } from 'react';
 import { useAuthStore } from '../store/useAuthStore';
 import { DashboardNavbar } from '../components/DashboardNavbar';
+import QRCode from 'react-qr-code';
 
 export function TicketPage() {
   const { bookingId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, user } = useAuthStore();
   const { confirmedBooking, selectedSeats } = location.state || {};
 
   useEffect(() => {
@@ -113,10 +114,19 @@ export function TicketPage() {
                 </div>
               </div>
 
-              {/* QR Code Mock */}
-              <div className="bg-white rounded-xl p-4 flex flex-col items-center justify-center">
-                <div className="w-32 h-32 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiMwMDAiPjwvcmVjdD4KPC9zdmc+')] opacity-90 rounded"></div>
-                <p className="text-black text-[10px] tracking-widest mt-2 font-mono uppercase">ID: {bookingId?.substring(0, 8)}</p>
+              {/* Realistic QR Code */}
+              <div className="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-inner">
+                <div className="border-4 border-gray-100 p-2 rounded-lg bg-white">
+                  <QRCode 
+                    value={`CineNest-Ticket-${bookingId}-${user?.id || 'GUEST'}`}
+                    size={128}
+                    level="H"
+                    bgColor="#ffffff"
+                    fgColor="#000000"
+                  />
+                </div>
+                <p className="text-black text-[10px] tracking-widest mt-3 font-mono uppercase">SCAN AT ENTRY</p>
+                <p className="text-gray-500 text-[9px] tracking-widest font-mono uppercase">ID: {bookingId?.substring(0, 8)}</p>
               </div>
             </div>
           </div>

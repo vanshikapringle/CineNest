@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getMovies, searchMovies } from '../services/api';
 import { MovieCard } from '../components/MovieCard';
-import { Search, Home, Star, Bookmark, Settings, LogOut, Bell } from 'lucide-react';
+import { Search, Home, Star, Bookmark, Settings, LogOut, Bell, Calendar, Ticket, Filter } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -16,7 +16,13 @@ export function DashboardPage() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = 12;
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    // Invalidate movies cache on mount to ensure fresh UUIDs
+    queryClient.invalidateQueries({ queryKey: ['movies'] });
+  }, [queryClient]);
 
   const years = ["Any Year", "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"];
 
@@ -273,7 +279,7 @@ export function DashboardPage() {
             </div>
           ) : currentMovies && currentMovies.length > 0 ? (
             <>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pb-12">
                 {currentMovies.map((movie: any, idx: number) => (
                   <div 
                     key={movie.id} 

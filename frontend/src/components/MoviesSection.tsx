@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useQueryClient } from '@tanstack/react-query';
 import { MovieCard } from './MovieCard';
 
 interface MoviesSectionProps {
@@ -11,7 +12,13 @@ interface MoviesSectionProps {
 
 export function MoviesSection({ movies, isLoading, isError, isClickable = true }: MoviesSectionProps) {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = 12;
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    queryClient.invalidateQueries({ queryKey: ['movies'] });
+  }, [queryClient]);
+
   const totalPages = movies ? Math.ceil(movies.length / itemsPerPage) : 0;
   const currentMovies = movies ? movies.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : [];
   return (
@@ -69,7 +76,7 @@ export function MoviesSection({ movies, isLoading, isError, isClickable = true }
 
       {!isLoading && !isError && currentMovies && currentMovies.length > 0 && (
         <>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentMovies.map((movie: any, idx: number) => (
               <motion.div
                 key={movie.id}
